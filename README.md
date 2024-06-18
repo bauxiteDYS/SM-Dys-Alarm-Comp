@@ -1,5 +1,5 @@
 # SM-Dys-Alarm-Fix
-Sourcemod plugins for Dystopia that modifies Cyber Alarm behaviour, mostly intended for comp.
+Sourcemod plugin for Dystopia that modifies Cyber Alarm behaviour, mostly intended for comp.
 
 # Default Cyber Alarm behaviour:
 1) Decker from a team places Cyber Alarm on ICE
