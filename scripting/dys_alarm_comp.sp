@@ -7,7 +7,7 @@ public Plugin myinfo = {
 	name = "Dys Comp Cyber Alarm Fix",
 	description = "Changes Cyber Alarm behaviour to make more sense",
 	author = "bauxite",
-	version = "0.1.0",
+	version = "0.1.1",
 	url = "",
 };
 
@@ -18,8 +18,21 @@ public void OnPluginStart()
 
 public Action SoundHook(int clients[MAXPLAYERS], int& numClients, char sample[PLATFORM_MAX_PATH], int& entity, int& channel, float& volume, int& level, int& pitch, int& flags, char soundEntry[PLATFORM_MAX_PATH], int& seed)
 {   
+
 	if(StrEqual(g_alarmSound, sample, false))
 	{
+		char sAlarm[11 + 1];
+
+		if (!GetEntityClassname(entity, sAlarm, sizeof(sAlarm)))
+		{
+			return Plugin_Continue;
+		}
+		
+		if (!StrEqual(sAlarm,"cyber_alarm", false))
+		{
+			return Plugin_Continue;
+		}
+		
 		int team = GetEntProp(entity, Prop_Send, "m_Team");
 		
 		for(int i = 1; i <= MaxClients; i++)
